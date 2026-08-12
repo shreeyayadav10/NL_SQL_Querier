@@ -1,0 +1,42 @@
+[
+    {
+        "id": "review_001",
+        "category": "review",
+        "difficulty": "easy",
+        "concepts": ["aggregation", "average"],
+        "question": "What is the average review score?",
+        "sql": "SELECT ROUND(AVG(review_score), 2) AS average_review_score FROM reviews;"
+    },
+    {
+        "id": "review_002",
+        "category": "review",
+        "difficulty": "easy",
+        "concepts": ["group by", "count"],
+        "question": "How many reviews are there for each review score?",
+        "sql": "SELECT review_score, COUNT(*) AS review_count FROM reviews GROUP BY review_score ORDER BY review_score DESC;"
+    },
+    {
+        "id": "review_003",
+        "category": "review",
+        "difficulty": "medium",
+        "concepts": ["join", "group by", "average"],
+        "question": "What is the average review score for each order status?",
+        "sql": "SELECT o.order_status, ROUND(AVG(r.review_score), 2) AS average_review_score FROM reviews r JOIN orders o ON r.order_id = o.order_id GROUP BY o.order_status ORDER BY average_review_score DESC;"
+    },
+    {
+        "id": "review_004",
+        "category": "review",
+        "difficulty": "medium",
+        "concepts": ["join", "group by", "average"],
+        "question": "What is the average review score for each customer state?",
+        "sql": "SELECT c.customer_state, ROUND(AVG(r.review_score), 2) AS average_review_score FROM reviews r JOIN orders o ON r.order_id = o.order_id JOIN customers c ON o.customer_id = c.customer_id GROUP BY c.customer_state ORDER BY average_review_score DESC;"
+    },
+    {
+        "id": "review_005",
+        "category": "review",
+        "difficulty": "hard",
+        "concepts": ["join", "group by", "having", "count"],
+        "question": "Which customer states have more than 1000 reviews?",
+        "sql": "SELECT c.customer_state, COUNT(*) AS review_count FROM reviews r JOIN orders o ON r.order_id = o.order_id JOIN customers c ON o.customer_id = c.customer_id GROUP BY c.customer_state HAVING COUNT(*) > 1000 ORDER BY review_count DESC;"
+    }
+]

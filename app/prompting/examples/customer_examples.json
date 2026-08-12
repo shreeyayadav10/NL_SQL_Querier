@@ -1,0 +1,42 @@
+[
+    {
+        "id": "customer_001",
+        "category": "customer",
+        "difficulty": "easy",
+        "concepts": ["count", "distinct"],
+        "question": "How many unique customers have placed orders?",
+        "sql": "SELECT COUNT(DISTINCT customer_unique_id) AS unique_customers FROM customers;"
+    },
+    {
+        "id": "customer_002",
+        "category": "customer",
+        "difficulty": "easy",
+        "concepts": ["group by", "count"],
+        "question": "How many customers are there in each state?",
+        "sql": "SELECT customer_state, COUNT(*) AS customer_count FROM customers GROUP BY customer_state ORDER BY customer_count DESC;"
+    },
+    {
+        "id": "customer_003",
+        "category": "customer",
+        "difficulty": "medium",
+        "concepts": ["join", "group by", "count"],
+        "question": "Which customer states have the most orders?",
+        "sql": "SELECT c.customer_state, COUNT(o.order_id) AS order_count FROM customers c JOIN orders o ON c.customer_id = o.customer_id GROUP BY c.customer_state ORDER BY order_count DESC;"
+    },
+    {
+        "id": "customer_004",
+        "category": "customer",
+        "difficulty": "medium",
+        "concepts": ["join", "group by", "sum"],
+        "question": "What is the total amount spent by customers in each state?",
+        "sql": "SELECT c.customer_state, ROUND(SUM(p.payment_value), 2) AS total_spent FROM customers c JOIN orders o ON c.customer_id = o.customer_id JOIN payments p ON o.order_id = p.order_id GROUP BY c.customer_state ORDER BY total_spent DESC;"
+    },
+    {
+        "id": "customer_005",
+        "category": "customer",
+        "difficulty": "medium",
+        "concepts": ["join", "group by", "average"],
+        "question": "What is the average order value for each customer state?",
+        "sql": "SELECT c.customer_state, ROUND(AVG(order_totals.order_value), 2) AS average_order_value FROM customers c JOIN orders o ON c.customer_id = o.customer_id JOIN (SELECT order_id, SUM(payment_value) AS order_value FROM payments GROUP BY order_id) order_totals ON o.order_id = order_totals.order_id GROUP BY c.customer_state ORDER BY average_order_value DESC;"
+    }
+]

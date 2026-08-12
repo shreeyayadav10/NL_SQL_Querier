@@ -1,0 +1,42 @@
+[
+    {
+        "id": "product_001",
+        "category": "product",
+        "difficulty": "easy",
+        "concepts": ["count", "group by"],
+        "question": "How many products are there in each product category?",
+        "sql": "SELECT product_category_name, COUNT(*) AS product_count FROM products GROUP BY product_category_name ORDER BY product_count DESC;"
+    },
+    {
+        "id": "product_002",
+        "category": "product",
+        "difficulty": "medium",
+        "concepts": ["join", "aggregation", "group by"],
+        "question": "What is the average product price for each product category?",
+        "sql": "SELECT p.product_category_name, ROUND(AVG(oi.price), 2) AS average_price FROM products p JOIN order_items oi ON p.product_id = oi.product_id GROUP BY p.product_category_name ORDER BY average_price DESC;"
+    },
+    {
+        "id": "product_003",
+        "category": "product",
+        "difficulty": "medium",
+        "concepts": ["join", "aggregation", "group by", "limit"],
+        "question": "Which 10 product categories generated the highest revenue?",
+        "sql": "SELECT p.product_category_name, ROUND(SUM(oi.price), 2) AS revenue FROM products p JOIN order_items oi ON p.product_id = oi.product_id GROUP BY p.product_category_name ORDER BY revenue DESC LIMIT 10;"
+    },
+    {
+        "id": "product_004",
+        "category": "product",
+        "difficulty": "medium",
+        "concepts": ["join", "translation", "group by"],
+        "question": "What are the top 10 product categories by number of products, using English category names?",
+        "sql": "SELECT ct.product_category_name_english, COUNT(*) AS product_count FROM products p JOIN category_translation ct ON p.product_category_name = ct.product_category_name GROUP BY ct.product_category_name_english ORDER BY product_count DESC LIMIT 10;"
+    },
+    {
+        "id": "product_005",
+        "category": "product",
+        "difficulty": "hard",
+        "concepts": ["subquery", "aggregation", "having"],
+        "question": "Which product categories have an average item price greater than 100?",
+        "sql": "SELECT p.product_category_name, ROUND(AVG(oi.price), 2) AS average_price FROM products p JOIN order_items oi ON p.product_id = oi.product_id GROUP BY p.product_category_name HAVING AVG(oi.price) > 100 ORDER BY average_price DESC;"
+    }
+]

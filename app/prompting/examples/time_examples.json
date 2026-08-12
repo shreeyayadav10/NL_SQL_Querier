@@ -1,0 +1,42 @@
+[
+    {
+        "id": "time_001",
+        "category": "time",
+        "difficulty": "easy",
+        "concepts": ["date filtering", "count"],
+        "question": "How many orders were placed in 2017?",
+        "sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_purchase_timestamp >= '2017-01-01' AND order_purchase_timestamp < '2018-01-01';"
+    },
+    {
+        "id": "time_002",
+        "category": "time",
+        "difficulty": "medium",
+        "concepts": ["date filtering", "group by"],
+        "question": "How many orders were placed in each year?",
+        "sql": "SELECT strftime('%Y', order_purchase_timestamp) AS year, COUNT(*) AS order_count FROM orders GROUP BY year ORDER BY year;"
+    },
+    {
+        "id": "time_003",
+        "category": "time",
+        "difficulty": "medium",
+        "concepts": ["date filtering", "group by", "sum"],
+        "question": "What was the total revenue for each year?",
+        "sql": "SELECT strftime('%Y', o.order_purchase_timestamp) AS year, ROUND(SUM(oi.price), 2) AS revenue FROM orders o JOIN order_items oi ON o.order_id = oi.order_id GROUP BY year ORDER BY year;"
+    },
+    {
+        "id": "time_004",
+        "category": "time",
+        "difficulty": "medium",
+        "concepts": ["date filtering", "group by", "count"],
+        "question": "How many orders were placed in each month of 2018?",
+        "sql": "SELECT strftime('%m', order_purchase_timestamp) AS month, COUNT(*) AS order_count FROM orders WHERE order_purchase_timestamp >= '2018-01-01' AND order_purchase_timestamp < '2019-01-01' GROUP BY month ORDER BY month;"
+    },
+    {
+        "id": "time_005",
+        "category": "time",
+        "difficulty": "hard",
+        "concepts": ["date calculation", "julianday", "average"],
+        "question": "What was the average delivery time in days for delivered orders?",
+        "sql": "SELECT ROUND(AVG(julianday(order_delivered_customer_date) - julianday(order_purchase_timestamp)), 2) AS average_delivery_days FROM orders WHERE order_status = 'delivered' AND order_delivered_customer_date IS NOT NULL;"
+    }
+]
