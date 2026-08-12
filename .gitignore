@@ -40,3 +40,9 @@ exports/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Generated files
+exports/
+
+# Power BI
+*.pbix
