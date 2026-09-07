@@ -2,15 +2,15 @@
 
 An AI-powered Natural Language to SQL analytics application that allows users to query e-commerce data using plain English instead of writing SQL manually.
 
-The application uses the Olist Brazilian E-Commerce dataset and combines Large Language Models, LangChain, Groq, SQL validation, SQLite, and Streamlit to provide an end-to-end natural-language analytics workflow.
+The application uses the Olist Brazilian E-Commerce dataset and combines Large Language Models, LangChain, Groq, SQL validation, SQL correction, SQLite, and Streamlit to provide an end-to-end natural-language analytics workflow.
 
 ## Live Demo
 
-https://nlsqlquerier.streamlit.app/
+[https://nlsqlquerier.streamlit.app/](https://nlsqlquerier.streamlit.app/)
 
 ## GitHub Repository
 
-https://github.com/shreeyayadav10/NL_SQL_Querier
+[https://github.com/shreeyayadav10/NL_SQL_Querier](https://github.com/shreeyayadav10/NL_SQL_Querier)
 
 ---
 
@@ -41,6 +41,6 @@ Natural Language Question
             ↓
       Result Formatting
             ↓
-       Visualization
+        Visualization
             ↓
-     Business Insights
+      Business Insights
