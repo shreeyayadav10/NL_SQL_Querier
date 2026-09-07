@@ -1,0 +1,244 @@
+[
+    {
+        "id": "E01",
+        "difficulty": "easy",
+        "category": "basic_aggregation",
+        "question": "How many orders are there in the database?"
+    },
+    {
+        "id": "E02",
+        "difficulty": "easy",
+        "category": "date_filter",
+        "question": "How many orders were placed in 2018?"
+    },
+    {
+        "id": "E03",
+        "difficulty": "easy",
+        "category": "basic_aggregation",
+        "question": "How many customers are in the database?"
+    },
+    {
+        "id": "E04",
+        "difficulty": "easy",
+        "category": "basic_aggregation",
+        "question": "How many products are listed in the database?"
+    },
+    {
+        "id": "E05",
+        "difficulty": "easy",
+        "category": "basic_aggregation",
+        "question": "How many sellers are registered?"
+    },
+    {
+        "id": "E06",
+        "difficulty": "easy",
+        "category": "aggregation",
+        "question": "What is the average review score?"
+    },
+    {
+        "id": "E07",
+        "difficulty": "easy",
+        "category": "aggregation",
+        "question": "What is the total payment value?"
+    },
+    {
+        "id": "E08",
+        "difficulty": "easy",
+        "category": "aggregation",
+        "question": "What is the average payment value?"
+    },
+    {
+        "id": "E09",
+        "difficulty": "easy",
+        "category": "aggregation",
+        "question": "What is the total freight value across all order items?"
+    },
+    {
+        "id": "E10",
+        "difficulty": "easy",
+        "category": "distinct_values",
+        "question": "What are the different payment types used by customers?"
+    },
+    {
+        "id": "E11",
+        "difficulty": "easy",
+        "category": "group_by",
+        "question": "How many orders are there for each order status?"
+    },
+    {
+        "id": "E12",
+        "difficulty": "easy",
+        "category": "group_by",
+        "question": "How many reviews were given for each review score?"
+    },
+    {
+        "id": "E13",
+        "difficulty": "easy",
+        "category": "group_by",
+        "question": "How many products belong to each product category?"
+    },
+    {
+        "id": "E14",
+        "difficulty": "easy",
+        "category": "group_by",
+        "question": "How many payments were made using each payment type?"
+    },
+    {
+        "id": "E15",
+        "difficulty": "easy",
+        "category": "date_grouping",
+        "question": "How many orders were placed in each year?"
+    },
+
+    {
+        "id": "M01",
+        "difficulty": "medium",
+        "category": "join_aggregation_ranking",
+        "question": "What are the top 10 product categories by total item price?"
+    },
+    {
+        "id": "M02",
+        "difficulty": "medium",
+        "category": "join_aggregation_ranking",
+        "question": "Which sellers generated the highest total item price?"
+    },
+    {
+        "id": "M03",
+        "difficulty": "medium",
+        "category": "join_group_by",
+        "question": "Which customer states have the most orders?"
+    },
+    {
+        "id": "M04",
+        "difficulty": "medium",
+        "category": "multi_table_aggregation",
+        "question": "Which customer states generated the most total item price?"
+    },
+    {
+        "id": "M05",
+        "difficulty": "medium",
+        "category": "join_aggregation",
+        "question": "Which product categories have the highest average product price?"
+    },
+    {
+        "id": "M06",
+        "difficulty": "medium",
+        "category": "group_by_ranking",
+        "question": "Which 10 product categories have the most products?"
+    },
+    {
+        "id": "M07",
+        "difficulty": "medium",
+        "category": "having",
+        "question": "Which sellers generated more than 10,000 in total item price?"
+    },
+    {
+        "id": "M08",
+        "difficulty": "medium",
+        "category": "group_by_aggregation",
+        "question": "What is the total payment value for each payment type?"
+    },
+    {
+        "id": "M09",
+        "difficulty": "medium",
+        "category": "multi_table_aggregation",
+        "question": "What is the average review score for each customer state?"
+    },
+    {
+        "id": "M10",
+        "difficulty": "medium",
+        "category": "conditional_aggregation",
+        "question": "What percentage of reviews have a score of 5?"
+    },
+    {
+        "id": "M11",
+        "difficulty": "medium",
+        "category": "conditional_aggregation",
+        "question": "What percentage of orders were delivered?"
+    },
+    {
+        "id": "M12",
+        "difficulty": "medium",
+        "category": "date_grouping",
+        "question": "How many orders were placed in each month of 2018?"
+    },
+    {
+        "id": "M13",
+        "difficulty": "medium",
+        "category": "group_by_aggregation",
+        "question": "What is the average number of payment installments for each payment type?"
+    },
+    {
+        "id": "M14",
+        "difficulty": "medium",
+        "category": "group_by_ranking",
+        "question": "Which seller states have the highest number of sellers?"
+    },
+    {
+        "id": "M15",
+        "difficulty": "medium",
+        "category": "join_aggregation",
+        "question": "What is the average freight value for each seller?"
+    },
+
+    {
+        "id": "C01",
+        "difficulty": "complex",
+        "category": "multi_join_filter_ranking",
+        "question": "Which are the top 10 sellers by total item price from delivered orders?"
+    },
+    {
+        "id": "C02",
+        "difficulty": "complex",
+        "category": "subquery_having",
+        "question": "How many customers placed more than one order?"
+    },
+    {
+        "id": "C03",
+        "difficulty": "complex",
+        "category": "group_by_having",
+        "question": "How many orders had a total payment value greater than 500?"
+    },
+    {
+        "id": "C04",
+        "difficulty": "complex",
+        "category": "group_by_having",
+        "question": "How many orders used more than one payment transaction?"
+    },
+    {
+        "id": "C05",
+        "difficulty": "complex",
+        "category": "join_aggregation_ranking",
+        "question": "Which order status has the highest average review score?"
+    },
+    {
+        "id": "C06",
+        "difficulty": "complex",
+        "category": "date_join_aggregation",
+        "question": "What was the total item price for each month of 2018, ordered chronologically?"
+    },
+    {
+        "id": "C07",
+        "difficulty": "complex",
+        "category": "multi_join_ranking",
+        "question": "Which five customer states have the highest average payment value?"
+    },
+    {
+        "id": "C08",
+        "difficulty": "complex",
+        "category": "having_ranking",
+        "question": "Which five product categories generated the most total item price while having at least 100 order items?"
+    },
+    {
+        "id": "C09",
+        "difficulty": "complex",
+        "category": "having_multiple_conditions",
+        "question": "Which sellers have generated more than 10,000 in total item price and have at least 50 order items?"
+    },
+    {
+        "id": "C10",
+        "difficulty": "complex",
+        "category": "multi_join_multi_aggregation",
+        "question": "For each customer state, what is the total number of orders and the total payment value, ordered by total payment value?"
+    }
+]

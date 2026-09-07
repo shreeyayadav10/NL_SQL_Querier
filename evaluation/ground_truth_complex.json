@@ -1,0 +1,52 @@
+[
+  {
+    "id": "C01",
+    "question": "Which are the top 10 sellers by total item price from delivered orders?",
+    "expected_sql": "SELECT oi.seller_id, SUM(oi.price) AS total_item_price FROM order_items oi JOIN orders o ON oi.order_id = o.order_id WHERE o.order_status = 'delivered' GROUP BY oi.seller_id ORDER BY total_item_price DESC LIMIT 10;"
+  },
+  {
+    "id": "C02",
+    "question": "How many customers placed more than one order?",
+    "expected_sql": "SELECT COUNT(*) AS customers_with_multiple_orders FROM (SELECT customer_id FROM orders GROUP BY customer_id HAVING COUNT(order_id) > 1);"
+  },
+  {
+    "id": "C03",
+    "question": "How many orders had a total payment value greater than 500?",
+    "expected_sql": "SELECT COUNT(*) AS orders_above_500 FROM (SELECT order_id, SUM(payment_value) AS total_payment_value FROM payments GROUP BY order_id HAVING SUM(payment_value) > 500);"
+  },
+  {
+    "id": "C04",
+    "question": "How many orders used more than one payment transaction?",
+    "expected_sql": "SELECT COUNT(*) AS orders_with_multiple_payment_transactions FROM (SELECT order_id FROM payments GROUP BY order_id HAVING COUNT(payment_sequential) > 1);"
+  },
+  {
+    "id": "C05",
+    "question": "Which order status has the highest average review score?",
+    "expected_sql": "SELECT o.order_status, AVG(r.review_score) AS average_review_score FROM orders o JOIN reviews r ON o.order_id = r.order_id GROUP BY o.order_status ORDER BY average_review_score DESC LIMIT 1;"
+  },
+  {
+    "id": "C06",
+    "question": "What was the total item price for each month of 2018, ordered chronologically?",
+    "expected_sql": "SELECT strftime('%m', o.order_purchase_timestamp) AS month, SUM(oi.price) AS total_item_price FROM orders o JOIN order_items oi ON o.order_id = oi.order_id WHERE strftime('%Y', o.order_purchase_timestamp) = '2018' GROUP BY month ORDER BY month;"
+  },
+  {
+    "id": "C07",
+    "question": "Which five customer states have the highest average payment value?",
+    "expected_sql": "SELECT c.customer_state, AVG(p.payment_value) AS average_payment_value FROM customers c JOIN orders o ON c.customer_id = o.customer_id JOIN payments p ON o.order_id = p.order_id GROUP BY c.customer_state ORDER BY average_payment_value DESC LIMIT 5;"
+  },
+  {
+    "id": "C08",
+    "question": "Which five product categories generated the most total item price while having at least 100 order items?",
+    "expected_sql": "SELECT p.product_category_name, SUM(oi.price) AS total_item_price, COUNT(*) AS order_item_count FROM products p JOIN order_items oi ON p.product_id = oi.product_id GROUP BY p.product_category_name HAVING COUNT(*) >= 100 ORDER BY total_item_price DESC LIMIT 5;"
+  },
+  {
+    "id": "C09",
+    "question": "Which sellers have generated more than 10,000 in total item price and have at least 50 order items?",
+    "expected_sql": "SELECT seller_id, SUM(price) AS total_item_price, COUNT(*) AS order_item_count FROM order_items GROUP BY seller_id HAVING SUM(price) > 10000 AND COUNT(*) >= 50 ORDER BY total_item_price DESC;"
+  },
+  {
+    "id": "C10",
+    "question": "For each customer state, what is the total number of orders and the total payment value, ordered by total payment value?",
+    "expected_sql": "SELECT c.customer_state, COUNT(DISTINCT o.order_id) AS order_count, SUM(p.payment_value) AS total_payment_value FROM customers c JOIN orders o ON c.customer_id = o.customer_id JOIN payments p ON o.order_id = p.order_id GROUP BY c.customer_state ORDER BY total_payment_value DESC;"
+  }
+]

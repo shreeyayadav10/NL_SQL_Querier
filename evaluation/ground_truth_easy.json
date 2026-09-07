@@ -1,0 +1,77 @@
+[
+    {
+        "id": "E01",
+        "question": "How many orders are there in the database?",
+        "expected_sql": "SELECT COUNT(*) AS order_count FROM orders;"
+    },
+    {
+        "id": "E02",
+        "question": "How many orders were placed in 2018?",
+        "expected_sql": "SELECT COUNT(*) AS order_count FROM orders WHERE strftime('%Y', order_purchase_timestamp) = '2018';"
+    },
+    {
+        "id": "E03",
+        "question": "How many customers are in the database?",
+        "expected_sql": "SELECT COUNT(*) AS customer_count FROM customers;"
+    },
+    {
+        "id": "E04",
+        "question": "How many products are listed in the database?",
+        "expected_sql": "SELECT COUNT(*) AS product_count FROM products;"
+    },
+    {
+        "id": "E05",
+        "question": "How many sellers are registered?",
+        "expected_sql": "SELECT COUNT(*) AS seller_count FROM sellers;"
+    },
+    {
+        "id": "E06",
+        "question": "What is the average review score?",
+        "expected_sql": "SELECT AVG(review_score) AS average_review_score FROM reviews;"
+    },
+    {
+        "id": "E07",
+        "question": "What is the total payment value?",
+        "expected_sql": "SELECT SUM(payment_value) AS total_payment_value FROM payments;"
+    },
+    {
+        "id": "E08",
+        "question": "What is the average payment value?",
+        "expected_sql": "SELECT AVG(payment_value) AS average_payment_value FROM payments;"
+    },
+    {
+        "id": "E09",
+        "question": "What is the total freight value across all order items?",
+        "expected_sql": "SELECT SUM(freight_value) AS total_freight_value FROM order_items;"
+    },
+    {
+        "id": "E10",
+        "question": "What are the different payment types used by customers?",
+        "expected_sql": "SELECT DISTINCT payment_type FROM payments ORDER BY payment_type;"
+    },
+    {
+        "id": "E11",
+        "question": "How many orders are there for each order status?",
+        "expected_sql": "SELECT order_status, COUNT(*) AS order_count FROM orders GROUP BY order_status ORDER BY order_count DESC;"
+    },
+    {
+        "id": "E12",
+        "question": "How many reviews were given for each review score?",
+        "expected_sql": "SELECT review_score, COUNT(*) AS review_count FROM reviews GROUP BY review_score ORDER BY review_score;"
+    },
+    {
+        "id": "E13",
+        "question": "How many products belong to each product category?",
+        "expected_sql": "SELECT product_category_name, COUNT(*) AS product_count FROM products GROUP BY product_category_name ORDER BY product_count DESC;"
+    },
+    {
+        "id": "E14",
+        "question": "How many payments were made using each payment type?",
+        "expected_sql": "SELECT payment_type, COUNT(*) AS payment_count FROM payments GROUP BY payment_type ORDER BY payment_count DESC;"
+    },
+    {
+        "id": "E15",
+        "question": "How many orders were placed in each year?",
+        "expected_sql": "SELECT strftime('%Y', order_purchase_timestamp) AS year, COUNT(*) AS order_count FROM orders GROUP BY year ORDER BY year;"
+    }
+]
